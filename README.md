@@ -46,9 +46,29 @@ This design, with a little more time could be greatly improved by sorting by pri
 Note about the CORS Configuration: To make the frontend and backend work together during development and testing, CORS is configured to allow requests from all origins (`allow_origins=["*"]`).This safe for development and demo purposes but should be restricted in production environments.
 
 # Screenshots
+Ticket Form:
 ![Ticket Form](images/form.png)
+
+
+
+AI Suggestion on Ticket:
 ![AI Suggestion](images/ai.png)
+
+
+Dashboard Showing One Ticket:
 ![Dashboard](images/dashboard.png)
+
+
+
+Changing Status:
+![Changing Status](images/changing.png)
+![Changed](images/changed.png)
+
+
+Different Filters Applied:
+![Filter1](images/filter1.png)
+![Filter2](images/filter2.png)
+![Filter3](images/filter3.png)
 
 
 ### Assumptions : 1. For the priority, I am assuming that if there is no priority given, the ai priority applies. If there is priority given, then that priority takes precedence over ai generated priority unless "use suggestion" is clicked. 2. When filtering through tags, I am assuming the filters take tags from existing tickets as the options, not a predetermined set of tags. 3. I am assuming I do not have to check for valid email inputs.
