@@ -1,0 +1,155 @@
+/* Base Reset and Font */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f4f8;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.ticket-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+/* side by side suggestion */
+.ticket-form-wrapper.with-suggestion {
+  flex-direction: row;
+}
+
+@media (max-width: 768px) {
+  .ticket-form-wrapper.with-suggestion {
+    flex-direction: column;
+  }
+}
+
+/* main form */
+.ticket-form {
+  background-color: white;
+  flex: 1;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+
+.ai-suggestion-box {
+  flex: 1;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* make layout stack on small screens */
+
+/* form heading */
+.ticket-form h2 {
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-weight: lighter;
+  font-size: 1.75rem;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* labels */
+.form-label {
+  display: block;
+  font-weight: 500;
+  color: #34495e;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* inputs */
+.form-input {
+  width: 90%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.form-input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.3);
+  outline: none;
+}
+
+/* submit ticket button */
+.form-button {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 1.5rem;
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-button:hover {
+  background-color: #2980b9;
+}
+
+.form-button.disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+.form-error {
+  color: #e74c3c;
+  margin-top: 1rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+
+.use-suggestion-button {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #2ecc71;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.use-suggestion-button:hover {
+  background-color: #27ae60;
+}
+
+
+.ai-response {
+  margin-top: 1.5rem;
+  font-style: italic;
+  color: #555;
+  background-color: #ecf0f1;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+@media (max-width: 640px) {
+  .ticket-form {
+    margin: 1rem;
+    padding: 2rem 1rem;
+  }
+}
+
