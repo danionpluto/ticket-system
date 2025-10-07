@@ -8,7 +8,7 @@ from fastapi import HTTPException
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # allow all for testing, would not for actual product
+    allow_origins=["*"],  # allow all for testing, would not for actual product
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -25,24 +25,25 @@ class TicketCreate(BaseModel):
     department: str
     category: str
     tags: List[str]
-    suggested_response : str
+    suggested_response: str
+
 
 class Ticket(TicketCreate):
     id: str
     status: str = "New"
     suggested_response: Optional[str] = None
 
+
 class AiRequest(BaseModel):
     title: str
     description: str
+
 
 class AiSuggestion(BaseModel):
     category: str
     tags: List[str]
     priority: str
     suggested_response: str
-    
-    
 
 
 @app.get("/")
@@ -50,6 +51,8 @@ def root():
     return {"message": "AI Ticket System Backend Running"}
 
 # getting a ticket suggestion
+
+
 @app.post("/api/ai/suggest", response_model=AiSuggestion)
 def ai_suggest(data: AiRequest):
     # simlating AI logic
@@ -77,7 +80,9 @@ def ai_suggest(data: AiRequest):
         suggested_response=response
     )
 
-# adding a ticket    
+# adding a ticket
+
+
 @app.post("/api/tickets", response_model=Ticket)
 def create_ticket(ticket: TicketCreate):
     new_ticket = Ticket(
@@ -89,11 +94,14 @@ def create_ticket(ticket: TicketCreate):
     return new_ticket
 
 # listing tickets (for dashboard)
+
+
 @app.get("/api/tickets", response_model=List[Ticket])
 def get_tickets():
     return tickets_db
 
-# update ticket 
+# update ticket
+
 
 @app.patch("/api/tickets/{ticket_id}", response_model=Ticket)
 def update_ticket(ticket_id: str, updates: dict):

@@ -152,8 +152,7 @@ export default function TicketForm() {
             className="form-input"
           />
         </label>
-
-        {/* ONLY show submit button if suggestion doesn't exist */}
+        {/* remove submit button when reviewing suggestion */}
         {!aiSuggestion && (
           <button
             onClick={generateSuggestionsAndSave}
@@ -168,8 +167,6 @@ export default function TicketForm() {
 
         {error && <p className="form-error">{error}</p>}
       </div>
-
-      {/* AI SUGGESTION BOX */}
       {aiSuggestion && (
         <div className="ai-suggestion-box">
           <h3>AI Suggestions (editable)</h3>
@@ -185,7 +182,7 @@ export default function TicketForm() {
           </label>
 
           <label className="form-label">
-            Tags (comma separated) <br />
+            Tags <br />
             <input
               type="text"
               value={aiTags.join(", ")}
