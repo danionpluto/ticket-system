@@ -3,17 +3,29 @@
 ## Setup instructions
 
 ### Backend
+```bash
 cd server
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 uvicorn main:app --reload
-
+```
 ### Frontend: in another terminal window...
+```bash
 cd client
+npm install
 touch .env
+```
 
-in .env, set VITE_APP_URL to the URL given when you ran "uvicorn main:app --reload", in other words the local host where your backend is running.
+in .env, set VITE_APP_URL to the URL given when you ran "uvicorn main:app --reload", in other words the local host where your backend is running. For example, if your backend is running on (http://localhost:8000) your .env would look like this:
+
+VITE_API_URL=http://localhost:8000
+
+Then, run:
+
+```bash
+npm run dev
+```
 
 ### AI Logic
 
@@ -43,7 +55,7 @@ There is a button to clear the filters of the dashboard, colored a red-orange to
 This design, with a little more time could be greatly improved by sorting by priority and automatically sending "resolved" tickets to the bottom. This implemenation would allow for the support team to track the tickets they have already resolved without them getting in the way of higher priority or newer tickets.
 
 
-Note about the CORS Configuration: To make the frontend and backend work together during development and testing, CORS is configured to allow requests from all origins (`allow_origins=["*"]`).This safe for development and demo purposes but should be restricted in production environments.
+Note about the CORS Configuration: To make the frontend and backend work together during development and testing, I configured CORS to allow requests from all origins (`allow_origins=["*"]`). This is safe for my purposes but would change if I developed further.
 
 # Screenshots
 Ticket Form:
