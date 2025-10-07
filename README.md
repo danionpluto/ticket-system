@@ -1,4 +1,4 @@
-# ticket-system
+# Ticket-System
 
 ## Setup instructions
 
