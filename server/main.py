@@ -21,10 +21,11 @@ class TicketCreate(BaseModel):
     title: str
     description: str
     email: str
-    priority: Optional[str] = None
-    department: Optional[str] = None
-    category: Optional[str] = None
-    tags: Optional[List[str]] = []
+    priority: str
+    department: str
+    category: str
+    tags: List[str]
+    suggested_response : str
 
 class Ticket(TicketCreate):
     id: str
@@ -62,10 +63,10 @@ def ai_suggest(data: AiRequest):
         category = "Software"
         mock_tags = ["Email", "Outlook"]
         priority = "Medium"
-        response = "Try restarting your email client or check server settings."
+        response = "Try restarting your email client or check server settings. If that fails, contact IT Support at x1234."
     else:
         category = "General"
-        mock_tags = ["support", "issue"]
+        mock_tags = ["support", "issue", "IT"]
         priority = "Low"
         response = "Thank you for reporting. A support agent will follow up shortly."
 

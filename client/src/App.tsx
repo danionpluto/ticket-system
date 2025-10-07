@@ -1,11 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TicketForm from './TicketForm';
 import TicketDashboard from './TicketDashboard';
 
 export default function App() {
   const [view, setView] = useState<'form' | 'dashboard'>('form');
 
+  const [darkMode, setDarkMode] = useState(false);
+  const [page, setPage] = useState<'form' | 'dashboard'>('form');
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
+  }, [darkMode]);
+
   return (
+    
+      
+
+
     <div className="app-container">
       <header className="app-header">
         <nav className="nav-buttons">
