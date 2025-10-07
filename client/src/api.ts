@@ -25,7 +25,7 @@ export type TicketCreateData = {
   
 };
 
-
+// logic for getting ai suggestions, submitting, and updating tickets using ai suggestions
 export async function getAiSuggestions(title: string, description: string): Promise<AiSuggestion> {
   const res = await fetch(`${BASE_URL}/api/ai/suggest`, {
     method: 'POST',
@@ -53,6 +53,23 @@ export async function updateTicket(ticketId: string, updates: Partial<TicketCrea
     body: JSON.stringify(updates),
   });
   if (!res.ok) throw new Error('Failed to update ticket');
+  return res.json();
+}
+
+// logic for getting and updating tickets for dashboard
+export async function getTickets() {
+  const res = await fetch(`${BASE_URL}/api/tickets`);
+  if (!res.ok) throw new Error('Failed to fetch tickets');
+  return res.json();
+}
+
+export async function updateTicketStatus(id: string, status: string) {
+  const res = await fetch(`${BASE_URL}/api/tickets/${id}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ status }),
+  });
+  if (!res.ok) throw new Error('Failed to update status');
   return res.json();
 }
 
